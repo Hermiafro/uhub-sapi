@@ -22,6 +22,11 @@ output application/json
             "patient2": {
                 "firstName": "Alexa",
                 "lastName": "Michael"
+            },
+        {
+            "patient3": {
+                "firstName": "Abebe",
+                "lastName": "Belew"
             }
         }
     ]
