@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<flow name="get-covid-cases-by-national-idFlow" doc:id="15ae9b1b-8ff0-454a-9690-84c10037d855" >
+		<http:listener doc:name="GET v1/cases/{nationalId}" doc:id="16779ebc-6b47-4557-bd06-2818600fe28b" config-ref="HTTP_Listener_config" path="v1/cases/{nationalId}" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="attributes.uriParams.nationalId" doc:id="801ccb61-01a1-4f8b-8526-57eac79f92ff" message='#["\n The URI Parameter That Was Inserted = " ++ attributes.uriParams.nationalId as String]'/>
+	</flow>
+	<flow name="get-covid-cases-by-national-idFlow1" doc:id="cd5ba70a-8880-477a-8da9-3cf4f0c1750a" >
+		<http:listener doc:name="GET v1/cases/{nationalId}" doc:id="fedf44ff-d707-4bc2-96e5-ae823e4844a0" config-ref="HTTP_Listener_config" path="v1/cases/{nationalId}/{SSN}" allowedMethods="GET"/>
+		<logger level="INFO" doc:name="Logger" doc:id="0d3c26fe-b92f-4358-b527-b8a5bc91978b" message='#["\n The Social Security Inserted = " ++ attributes.uriParams.SSN as String]'/>
+	</flow>
+</mule>
